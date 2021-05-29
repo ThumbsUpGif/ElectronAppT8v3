@@ -187,7 +187,7 @@
 
         // erase local storage and start again with a new input window
         let refreshButton = document.getElementById('eraseStorage');
-        console.log(refreshButton)
+        // console.log(refreshButton)
 
         refreshButton.addEventListener('click', () => {
             localStorage.removeItem(storedObject);
@@ -195,12 +195,18 @@
         })
 
 
-        // // If there already is information in the localStorage, go straight to the countdown timer
-
-
+        // testing if the local storage works
         let storageChecker = localStorage.getItem('storedObject');
         console.log(storageChecker)
-        
+
+        // // If there already is information in the localStorage, go straight to the countdown timer
+        // if (storageChecker != null) {
+        //     hideInput.classList.remove("hide");
+        //     hideCountdown.setAttribute("class", "hide")
+        // } else {
+        //     hideInput.setAttribute("class", "hide");
+        //     hideCountdown.classList.remove("hide");
+        // }
 
 
         // Introduce the Materialize date form
@@ -216,7 +222,6 @@
         // function enterSpecialDate() {
         function load() {
 
-
             // establish reference point
             let currentTime = new Date();
             // console.log(currentTime);
@@ -227,13 +232,13 @@
 
             // save the result to local storage
             localStorage.setItem('storedObject', userDate);
-            var localStorageDate = new Date(localStorage.getItem('storedObject'));
+            var locallyStoredDate = new Date(localStorage.getItem('storedObject'));
             // console.log(localStorageDate)
 
-            //calculate difference between future date and curren moment - two different methods
 
-            let waitingTime = localStorageDate - currentTime;
-            // console.log(waitingTime)
+            //calculate difference between future date and current moment
+            let waitingTime = locallyStoredDate - currentTime;
+            console.log(waitingTime)
 
 
             // make the calculation from local storage rather than input
@@ -258,20 +263,9 @@
             // console.log(document.getElementById('user-occasion').value);
 
 
-            
-           
-
-            // if (storageChecker != null) {
-            //     hideInput.classList.remove("hide");
-            //     hideCountdown.setAttribute("class", "hide")
-            // } else {
-            //     hideInput.setAttribute("class", "hide");
-            //     hideCountdown.classList.remove("hide");
-            // }
-
-
         }
         setInterval(load, 1000);
+
     </script>
 
 
