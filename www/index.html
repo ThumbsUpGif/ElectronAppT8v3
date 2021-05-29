@@ -198,7 +198,8 @@
         // // If there already is information in the localStorage, go straight to the countdown timer
 
 
-
+        let storageChecker = localStorage.getItem('storedObject');
+        console.log(storageChecker)
         
 
 
@@ -258,16 +259,15 @@
 
 
             
-            let storageChecker = localStorage.getItem('storedObject');
-            console.log(storageChecker)
+           
 
-            if (storageChecker != null) {
-                hideInput.classList.remove("hide");
-                hideCountdown.setAttribute("class", "hide")
-            } else {
-                hideInput.setAttribute("class", "hide");
-                hideCountdown.classList.remove("hide");
-            }
+            // if (storageChecker != null) {
+            //     hideInput.classList.remove("hide");
+            //     hideCountdown.setAttribute("class", "hide")
+            // } else {
+            //     hideInput.setAttribute("class", "hide");
+            //     hideCountdown.classList.remove("hide");
+            // }
 
 
         }
