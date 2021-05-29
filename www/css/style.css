@@ -1,66 +1,195 @@
 * {
-    box-sizing: border-box;
-/*    outline: 1px solid rgba(255, 255, 255, 0.3);*/
-}
-
-.hidden {
-    visibility: hidden;
-}
-
-html, body {
-    padding: 0;
-    margin: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Roboto Mono', sans-serif;
-    font-weight: 300;
-    background-color: #f03e3e;
-    color: white;
+  font-family: Poppins, sans serif;
 }
 
-.wrapper {
-    min-width: 350px;
-    max-width: 500px;
-    min-height: 300px;
-    height: 90vh;
-    margin: 0 auto;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+html {
+  line-height: 1.5;
+  background-color: white;
+  font-family: Poppins, sans serif;
+  /* font-weight: normal; */
+  color: rgba(67, 67, 67, 0.87);
 }
 
-h1 {
-    margin-top: 50px;
-    font-style: italic;
-    font-weight: 300;
-    font-size: 1.5em;
-    color: #9b1f1f;
+.container {
+  width: 90vw;
 }
 
-.duration .time {
-    font-size: 8em;
-    font-weight: 100;
-    letter-spacing: -0.05em;
+.distance-1 {
+  /* background-color: cyan; */
+  height: 20vh;
+  width: auto;
 }
 
-.start-button {
-    flex: none;
-    border: 1px solid #fff;
-    color: #fff;
-    border-radius: 50%;
-    padding-top: 30px;
-    width: 80px;
-    height: 80px;
-    margin-bottom: 20px;
-    cursor: pointer;
-    user-select: none;
-    transition: all .15s ease;
+.distance-2 {
+  /* background-color: teal; */
+  height: 24vh;
+  width: auto;
 }
 
-.start-button:hover {
-    border: 1px solid #9b1f1f;
-    color: #9b1f1f;
+.distance-3 {
+  /* background-color: navy; */
+  height: 4.4vh;
+  width: auto;
+}
+
+@media screen and (max-width: 800px) {
+  .distance-1 {
+    /* background-color: magenta; */
+    height: 12vh;
+    width: auto;
+  }
+
+  .distance-2 {
+    /* background-color: purple; */
+    height: 12vh;
+    width: auto;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .distance-1 {
+    /* background-color: orange; */
+    height: 8vh;
+    width: auto;
+  }
+
+  .distance-2 {
+    /* background-color: peachpuff; */
+    height: 5vh;
+    width: auto;
+  }
+}
+
+h2 {
+  font-size: 36px;
+  /* color: red; */
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.time {
+  /* background-color: yellow; */
+  /* padding: 1vh; */
+  /* margin: 1vw; */
+  /* height: 2vh; */
+}
+
+.number {
+  /* background-color: pink; */
+  text-align: left;
+  font-size: 10vw;
+  font-weight: 100;
+}
+
+#unit {
+  /* background-color: lightgreen; */
+  text-align: right;
+  font-size: 3.6vw;
+  font-weight: 100;
+}
+
+.until {
+  /* background-color: cyan; */
+  font-size: 4vw;
+  text-align: left;
+  font-weight: 100;
+}
+
+/* ==================================*/
+/*Styling for Materialize input forms*/
+
+button,
+input,
+optgroup,
+select,
+textarea,
+label {
+  font-family: Poppins, sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  margin: 0;
+  color: inherit;
+}
+
+button,
+button:focus {
+  background-color: white;
+}
+
+/* ==================================*/
+/*Styling for Materialize Date Picker*/
+
+.datepicker-date-display,
+.datepicker-table td.is-selected,
+.month-next:focus,
+.month-prev:focus {
+  background-color: #333;
+  color: #fff;
+}
+
+.datepicker-cancel,
+.datepicker-clear,
+.datepicker-today,
+.datepicker-done {
+  color: #333;
+}
+
+.datepicker-table td.is-today {
+  color: teal;
+}
+
+.datepicker-day-button:focus {
+  background-color: #333;
+}
+
+/* label focus color */
+.input-field input[type="text"]:focus + label,
+.materialize-textarea:focus:not([readonly]) + label {
+  color: #333 !important;
+}
+
+/* label underline focus color */
+.input-field input[type="text"]:focus,
+.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #333 !important;
+  box-shadow: 0 1px 0 0 #333 !important;
+}
+
+/*not sure what any of this stuff is*/
+/*--------------------------------------------------------*/
+.datepicker-date-display,
+.year-text,
+.date-text
+{
+  display: block;
+  /* font-size: 16px; */
+  /* line-height: 18px; */
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.white {
+  background-color: #fff !important;
+}
+
+.white-text {
+  color: #fff !important;
+}
+
+.transparent {
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+
+.transparent-text {
+  color: rgba(0, 0, 0, 0) !important;
+}
+
+.black-text {
+  color: #000 !important;
 }

@@ -2,11 +2,14 @@
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
 
-function createWindow () {
+function createWindow() {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 490,
-    height: 760
+    width: 1200,
+    height: 700,
+    // titleBarStyle: 'hidden',
+    titleBarStyle: 'hiddenInset',
+    // titleBarStyle: 'customButtonsOnHover',
   })
 
   // and load the index.html of the app.
