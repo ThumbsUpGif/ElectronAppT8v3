@@ -76,7 +76,7 @@
                     <br>
 
                     <button
-                        style=" height: 26px; width: 60px; border-radius: 5px; border: solid 0.5px #333;">Enter</button>
+                        style="border-radius: 5px; border: solid 0.5px #333; padding: 6px;">Enter</button>
                 </div>
                 <div class="col s12 m3"></div>
             </div>
@@ -138,7 +138,7 @@
 
                     <div class="col s12 m12">
                         <!-- <a id="eraseStorage" href="javascript:location.reload(true)">start again</a> -->
-                        <a id="eraseStorage" href="">create new timer</a>
+                        <a id="eraseStorage" href="" style="height: 26px; width: auto; border-radius: 5px; border: solid 0.5px #333; padding: 6px;">start again</a>
                     </div>
                 </div>
 
@@ -234,7 +234,7 @@
 
             // establish reference point
             let currentTime = new Date();
-            // console.log(currentTime);
+            console.log(currentTime);
 
             // pull date from user activity   
             // let userDate = new Date(document.getElementById('special-date').value);
@@ -267,17 +267,14 @@
             // console.log(s < 10 ? ‘0’ + s : s;) <-- I could't get this to work...
 
         
-            // place user's occasion into local storage
+            // retrieve user's occasion from local storage and enter into document
             var locallyStoredOccasion = localStorage.getItem('storedOccasion');
             console.log(locallyStoredOccasion)
     
             document.getElementById('userOccasionOutput').innerHTML = locallyStoredOccasion;
-            
-
-            
-
+    
         }
-        setInterval(load, 1000);
+        setInterval(load, 10);
     </script>
 
 
