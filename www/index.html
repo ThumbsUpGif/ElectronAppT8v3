@@ -137,7 +137,8 @@
                     </div>
 
                     <div class="col s12 m12">
-                        <a id="eraseStorage" href="javascript:location.reload(true)">start again</a>
+                        <!-- <a id="eraseStorage" href="javascript:location.reload(true)">start again</a> -->
+                        <a id="eraseStorage" href="">create new timer</a>
                     </div>
                 </div>
 
@@ -184,16 +185,21 @@
         });
 
 
+        // erase local storage and start again with a new input window
         let refreshButton = document.getElementById('eraseStorage');
         console.log(refreshButton)
 
         refreshButton.addEventListener('click', () => {
             localStorage.removeItem(storedObject);
+            // console.log('click')
         })
 
 
+        // // If there already is information in the localStorage, go straight to the countdown timer
 
 
+
+        
 
 
         // Introduce the Materialize date form
@@ -206,38 +212,27 @@
         })
 
         // Create a countdown timer and display the user's text
-
-
-
-
         // function enterSpecialDate() {
         function load() {
 
-            if (localStorageDate == null) {
-                hideInput.classList.remove("hide");
-                hideCountdown.setAttribute("class", "hide")
-            } else {
-                hideInput.setAttribute("class", "hide");
-                hideCountdown.classList.remove("hide");
-            }
 
             // establish reference point
             let currentTime = new Date();
-            console.log(currentTime);
+            // console.log(currentTime);
 
             // pull date from user activity   
             let userDate = new Date(document.getElementById('special-date').value);
-            console.log(userDate)
+            // console.log(userDate)
 
             // save the result to local storage
             localStorage.setItem('storedObject', userDate);
             var localStorageDate = new Date(localStorage.getItem('storedObject'));
-            console.log(localStorageDate)
+            // console.log(localStorageDate)
 
             //calculate difference between future date and curren moment - two different methods
 
             let waitingTime = localStorageDate - currentTime;
-            console.log(waitingTime)
+            // console.log(waitingTime)
 
 
             // make the calculation from local storage rather than input
@@ -260,6 +255,20 @@
             var userOccasion = document.getElementById('user-occasion').value;
             document.getElementById('userOccasionOutput').innerHTML = userOccasion;
             // console.log(document.getElementById('user-occasion').value);
+
+
+            
+            let storageChecker = localStorage.getItem('storedObject');
+            console.log(storageChecker)
+
+            if (storageChecker != null) {
+                hideInput.classList.remove("hide");
+                hideCountdown.setAttribute("class", "hide")
+            } else {
+                hideInput.setAttribute("class", "hide");
+                hideCountdown.classList.remove("hide");
+            }
+
 
         }
         setInterval(load, 1000);
