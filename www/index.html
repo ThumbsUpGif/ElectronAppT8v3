@@ -173,6 +173,8 @@
         // console.log(button);
 
 
+        // Create a button that enters information and hides the input field after use
+
         button.addEventListener('click', () => {
             if (hideInput.classList.contains("hide")) {
                 hideInput.classList.remove("hide");
@@ -182,6 +184,14 @@
                 hideInput.setAttribute("class", "hide");
                 hideCountdown.classList.remove("hide");
             }
+
+            let userDate = new Date(document.getElementById('special-date').value);
+            let userOccasion = document.getElementById('user-occasion').value;
+
+            localStorage.setItem('storedDate', userDate);
+            localStorage.setItem('storedOccasion', userOccasion);
+            console.log(userOccasion)
+
         });
 
 
@@ -190,23 +200,23 @@
         // console.log(refreshButton)
 
         refreshButton.addEventListener('click', () => {
-            localStorage.removeItem(storedObject);
+            localStorage.clear();
             // console.log('click')
         })
 
 
         // testing if the local storage works
-        let storageChecker = localStorage.getItem('storedObject');
+        let storageChecker = localStorage.getItem('storedDate');
         console.log(storageChecker)
 
-        // // If there already is information in the localStorage, go straight to the countdown timer
-        // if (storageChecker != null) {
-        //     hideInput.classList.remove("hide");
-        //     hideCountdown.setAttribute("class", "hide")
-        // } else {
-        //     hideInput.setAttribute("class", "hide");
-        //     hideCountdown.classList.remove("hide");
-        // }
+        // If there already is information in the localStorage, go straight to the countdown timer
+        if (storageChecker == null) {
+            hideInput.classList.remove("hide");
+            hideCountdown.setAttribute("class", "hide")
+        } else {
+            hideInput.setAttribute("class", "hide");
+            hideCountdown.classList.remove("hide");
+        }
 
 
         // Introduce the Materialize date form
@@ -227,12 +237,11 @@
             // console.log(currentTime);
 
             // pull date from user activity   
-            let userDate = new Date(document.getElementById('special-date').value);
+            // let userDate = new Date(document.getElementById('special-date').value);
             // console.log(userDate)
 
             // save the result to local storage
-            localStorage.setItem('storedObject', userDate);
-            var locallyStoredDate = new Date(localStorage.getItem('storedObject'));
+            var locallyStoredDate = new Date(localStorage.getItem('storedDate'));
             // console.log(localStorageDate)
 
 
@@ -257,15 +266,18 @@
             // make minutes and seconds always display as two digits
             // console.log(s < 10 ? ‘0’ + s : s;) <-- I could't get this to work...
 
-            // collect user's special occasion string and pass back into document
-            var userOccasion = document.getElementById('user-occasion').value;
-            document.getElementById('userOccasionOutput').innerHTML = userOccasion;
-            // console.log(document.getElementById('user-occasion').value);
+        
+            // place user's occasion into local storage
+            var locallyStoredOccasion = localStorage.getItem('storedOccasion');
+            console.log(locallyStoredOccasion)
+    
+            document.getElementById('userOccasionOutput').innerHTML = locallyStoredOccasion;
+            
 
+            
 
         }
         setInterval(load, 1000);
-
     </script>
 
 
