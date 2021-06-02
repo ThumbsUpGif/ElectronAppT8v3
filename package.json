@@ -5,10 +5,10 @@
 	"main": "main.js",
 	"scripts": {
 		"start": "electron .",
-		"build-macOs": "electron-packager . Pomodoro --out=./builds --overwrite --icon=./app_icons/Pomodoro-Icon.icns"
+		"build-macOs": "electron-packager . OccasionsAndDeadlines --out=./builds --overwrite --icon=./app_icons/InterimAttempt3.icns"
 	},
-	"repository": "https://github.com/olivierklaver/ElectronApp",
-	"author": "Olivier Klaver",
+	"repository": "https://github.com/ThumbsUpGif/ElectronAppT8v3",
+	"author": "Magnus Jorde",
 	"license": "CC0-1.0",
 	"devDependencies": {
 		"electron": "^12.0.7",

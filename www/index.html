@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -19,7 +20,7 @@
 <body onload="load()">
     <div class="container">
 
-        <!-- welcome message and input area - should show on start then disappear after you click buttton-->
+        <!-- welcome message and input area - should show on start then disappear after you click the 'enter' buttton-->
 
         <div class="" id="input-hide">
             <div class="row">
@@ -46,11 +47,10 @@
 
                         <div class="input-field">
                             <input type="text" id="special-date" class="datepicker" placeholder="click here">
-                            <label for="date" style="font-size: 20px; color: rgba(67, 67, 67, 0.87)">when is your
+                            <label for="special-date" style="font-size: 20px; color: rgba(67, 67, 67, 0.87)">when is your
                                 special occasion?</label>
                         </div>
                     </form>
-
 
                 </div>
                 <div class="col s12 m3"></div>
@@ -72,11 +72,9 @@
 
                     </form>
 
-                    <br>
-                    <br>
+                    
 
-                    <button
-                        style="border-radius: 5px; border: solid 0.5px #333; padding: 6px;">Enter</button>
+                    <button style="border-radius: 5px; border: solid 0.5px #333; padding: 6px;">Enter</button>
                 </div>
                 <div class="col s12 m3"></div>
             </div>
@@ -87,7 +85,7 @@
         </div>
 
 
-        <!-- countdown ticker - should appear only after you click the button -->
+        <!-- countdown ticker - should appear only after you click the 'enter' button -->
 
         <div class="hide" id="countdown-hide">
 
@@ -104,25 +102,25 @@
                     <div class="time col s12 m3">
                         <span class="number" id="days"></span>
                         <br>
-                        <span id="unit">days</span>
+                        <span class="unit">days</span>
                     </div>
 
                     <div class="time col s12 m3">
                         <span class="number" id="hours"></span>
                         <br>
-                        <span id="unit">hours</span>
+                        <span class="unit">hours</span>
                     </div>
 
                     <div class="time col s12 m3">
                         <span class="number" id="minutes"></span>
                         <br>
-                        <span id="unit">minutes</span>
+                        <span class="unit">minutes</span>
                     </div>
 
                     <div class="time col s12 m3">
                         <span class="number" id="seconds"></span>
                         <br>
-                        <span id="unit">seconds</span>
+                        <span class="unit">seconds</span>
                     </div>
 
 
@@ -133,150 +131,26 @@
                 <div class="col s12 m12">
 
                     <div class="time col s12 m12 until">
-                        <span>until </span><span id="userOccasionOutput"></span></p>
+                        <span>until </span><span id="userOccasionOutput"></span>
                     </div>
 
+                    <div class="col s12 m12 distance-4"></div>
+
                     <div class="col s12 m12">
-                        <!-- <a id="eraseStorage" href="javascript:location.reload(true)">start again</a> -->
-                        <a id="eraseStorage" href="" style="height: 26px; width: auto; border-radius: 5px; border: solid 0.5px #333; padding: 6px;">start again</a>
+
+                        <a id="eraseStorage" href="" style="height: 26px; width: auto; border-radius: 5px; border: solid 0.5px #333; padding: 6px;">create new timer</a>
                     </div>
                 </div>
 
 
 
-            </div>
-
-        </div>
-
-    </div>
-
-    </div>
-
-
-    <script type="javascript" src="js/MyScript.js"></script>
-
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+				</div>
+			</div>
+		</div>
+    
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-
-
-
-    <script>
-        // Event listener based on Materialize css .hide class
-
-        let hideInput = document.getElementById('input-hide');
-        // console.log(hideInput);
-        let hideCountdown = document.getElementById('countdown-hide');
-        // console.log(hideCountdown);
-        let button = document.querySelector("button");
-        // console.log(button);
-
-
-        // Create a button that enters information into local storage and then hides the input field after use
-
-        button.addEventListener('click', () => {
-            if (hideInput.classList.contains("hide")) {
-                hideInput.classList.remove("hide");
-                hideCountdown.setAttribute("class", "hide")
-
-            } else {
-                hideInput.setAttribute("class", "hide");
-                hideCountdown.classList.remove("hide");
-            }
-
-            let userDate = new Date(document.getElementById('special-date').value);
-            let userOccasion = document.getElementById('user-occasion').value;
-
-            localStorage.setItem('storedDate', userDate);
-            localStorage.setItem('storedOccasion', userOccasion);
-            console.log(userOccasion)
-
-        });
-
-
-        // erase local storage and start again with a new input window
-        let refreshButton = document.getElementById('eraseStorage');
-        // console.log(refreshButton)
-
-        refreshButton.addEventListener('click', () => {
-            localStorage.clear();
-            // console.log('click')
-        })
-
-
-        // testing if the local storage works
-        let storageChecker = localStorage.getItem('storedDate');
-        console.log(storageChecker)
-
-        // If there already is information in the localStorage, go straight to the countdown timer
-        if (storageChecker == null) {
-            hideInput.classList.remove("hide");
-            hideCountdown.setAttribute("class", "hide")
-        } else {
-            hideInput.setAttribute("class", "hide");
-            hideCountdown.classList.remove("hide");
-        }
-
-
-        // Introduce the Materialize date form
-        const Calender = document.querySelector('.datepicker');
-        M.Datepicker.init(Calender, {
-            format: 'yyyy-mm-dd',
-            firstDay: 1,
-            // minDate: '2021 05 01', // I could't get this to work...
-
-        })
-
-        // Create a countdown timer and display the user's text
-        // function enterSpecialDate() {
-        function load() {
-
-            // establish reference point
-            let currentTime = new Date();
-            console.log(currentTime);
-
-            // pull date from user activity   
-            // let userDate = new Date(document.getElementById('special-date').value);
-            // console.log(userDate)
-
-            // save the result to local storage
-            var locallyStoredDate = new Date(localStorage.getItem('storedDate'));
-            // console.log(localStorageDate)
-
-
-            //calculate difference between future date and current moment
-            let waitingTime = locallyStoredDate - currentTime;
-            console.log(waitingTime)
-
-
-            // make the calculation from local storage rather than input
-            const d = Math.floor(waitingTime / 1000 / 60 / 60 / 24);
-            const h = Math.floor(waitingTime / 1000 / 60 / 60) % 24;
-            const m = Math.floor(waitingTime / 1000 / 60) % 60;
-            const s = Math.floor(waitingTime / 1000) % 60;
-
-
-            // pass values back into HTML document
-            document.getElementById('days').innerHTML = d;
-            document.getElementById('hours').innerHTML = h;
-            document.getElementById('minutes').innerHTML = m;
-            document.getElementById('seconds').innerHTML = s;
-
-            // make minutes and seconds always display as two digits
-            // console.log(s < 10 ? ‘0’ + s : s;) <-- I could't get this to work...
-
-        
-            // retrieve user's occasion from local storage and enter into document
-            var locallyStoredOccasion = localStorage.getItem('storedOccasion');
-            console.log(locallyStoredOccasion)
-    
-            document.getElementById('userOccasionOutput').innerHTML = locallyStoredOccasion;
-    
-        }
-        setInterval(load, 10);
-    </script>
-
+    <script src="js/script.js"></script>
 
 </body>
 
