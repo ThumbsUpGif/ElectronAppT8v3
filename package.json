@@ -5,7 +5,7 @@
 	"main": "main.js",
 	"scripts": {
 		"start": "electron .",
-		"build-macOs": "electron-packager . OccasionsAndDeadlines --out=./builds --overwrite --icon=./app_icons/InterimAttempt3.icns"
+		"build-macOs": "electron-packager . OccasionsAndDeadlines --out=./builds --overwrite --icon=./app_icons/ThirdAttempt.icns"
 	},
 	"repository": "https://github.com/ThumbsUpGif/ElectronAppT8v3",
 	"author": "Magnus Jorde",
